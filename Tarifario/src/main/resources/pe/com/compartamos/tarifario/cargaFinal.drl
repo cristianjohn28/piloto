@@ -1,0 +1,28 @@
+package pe.com.compartamos.tarifario;
+
+import pe.com.compartamos.tarifario.beanResponse;
+
+global java.lang.Integer myGlobal;
+
+    dialect "mvel"
+    ruleflow-group "carga-final"
+    no-loop true
+
+rule "carga-final"
+
+
+    
+    when
+        response : beanResponse()
+        
+    then
+        
+        response.setContador(myGlobal);
+        
+        System.out.println("Rule fired : [" + drools.getRule().getName() + "]");
+        
+    
+
+end
+
+
